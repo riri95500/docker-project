@@ -1,17 +1,18 @@
 # docker-project
 
-Après avoir clone le git faudra supprimer le ".gitignore" dans le dossier pg_data.
+Après avoir cloné le git il faudra supprimer le ".gitignore" dans le dossier pg_data
 
-Puis entrer "docker compose up -d"
+Puis exécutez "docker compose up -d"
 
 À la suite faire un "docker ps" pour récupérer l'id du container
 
-On va rentrer dans terminal du container : docker exec -it container_symfony_id sh
+On va rentrer dans le terminal du container : docker exec -it container_symfony_id sh
 
-Puis après on install symfony: composer require symfony/runtime
+Pour avoir un environnement d'exécution optimisé pour notre applications Symfony : composer require symfony/runtime
 
-Àprès l'installation migré les donnés: php bin/console make:migration
-
+Après l'installation migrez les données: - php bin/console make:migration
+                                         - php bin/console doctrine:migration:migrate
+                                         
 Ouvrir sur le navigateur l'app: http://localhost:8000/default et l'adminer: http://localhost:8081/adminer
 
-Puis crée directement sur adminer les données et après retourner sur l'app pour les afficher.
+Injecter les données dans la table TodoList sur adminer
