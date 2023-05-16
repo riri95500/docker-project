@@ -27,6 +27,7 @@ RUN apk add php7 \
     php7-intl \
     php7-curl
 
+# Configure les extensions PDO PostgreSQL et PostgreSQL en ajoutant les fichiers de configuration correspondants.
 RUN echo "extension=pdo_pgsql.so" > /etc/php7/conf.d/pdo_pgsql.ini \
     && echo "extension=pgsql.so" > /etc/php7/conf.d/pgsql.ini
 
