@@ -1,3 +1,0 @@
-# Ignorer le contenu du répertoire pg_data, mais conserver le répertoire lui-même
-pg_data/*
-!pg_data/.gitignore
