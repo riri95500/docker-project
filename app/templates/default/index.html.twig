@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!
+{% endblock %}
+
+{% block body %}
+	<ul>
+		{% for todo in todos %}
+			<li>{{ todo.titre }}
+				-
+				{% if todo.done %}fait{% else %}non fait
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

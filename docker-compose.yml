@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  web:
+    image: riad95500/docker-project-symfony
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/var/www
+    depends_on:
+      - postgres-db
+    environment:
+      - DATABASE_URL=pgsql://riad:riad@postgres-db:5432/mybase
+
+  postgres-db:
+    # image: riad95500/docker-project-postgres 
+    image: postgres:9.6-alpine
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=riad
+      - POSTGRES_PASSWORD=riad
+      - POSTGRES_DB=mybase
+    ports:
+      - 5432:5432
+    restart: always
+
+
+  adminer:
+    image: riad95500/docker-project-adminer
+    ports:
+      - 8081:8080
+
+  composer:
+    image: riad95500/docker-project-composer
+    volumes:
+      - ./composerV:/app
+    working_dir: /app
